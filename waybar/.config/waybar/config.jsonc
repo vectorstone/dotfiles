@@ -2,11 +2,39 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "modules-right": [
+	  "memory",
+	  "cpu",
+	  "disk",
+	  "network", 
+	  "pulseaudio", 
+	  "battery", 
+	  "clock",
+	  "keyboard-state",
+	  "tray"
+  ],
+  
   "clock": {
     "format": "<span foreground='#f5c2e7'>   </span>{:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+"memory": {
+	"interval": 30,
+    "format": "<span foreground='#faf0e6'>Memory </span>{used:0.1f}G/{total:0.1f}G "
+},
+
+"cpu": {
+	"interval": 30,
+    "format": "<span foreground='#fffff0'>CPU </span>{}% ",
+    "max-length": 15
+},
+
+  "disk": {
+	"interval": 30,
+    "format": "<span foreground='#f5c2e7'>Disk </span>{percentage_free}%"
+
+  },
+
   "battery": {
     "states": {
       "warning": 30,
