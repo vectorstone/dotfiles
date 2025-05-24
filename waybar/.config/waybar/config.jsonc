@@ -1,8 +1,8 @@
 {
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
   "modules-right": [
+    "tray",
 	  "memory",
 	  "cpu",
 	  "disk",
@@ -11,7 +11,7 @@
 	  "battery", 
 	  "clock",
 	  "keyboard-state",
-	  "tray"
+    "custom/power"
   ],
   
   "clock": {
@@ -19,12 +19,12 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 "memory": {
-	"interval": 30,
-    "format": "<span foreground='#faf0e6'>Memory </span>{used:0.1f}G/{total:0.1f}G "
+	"interval": 5,
+    "format": "<span foreground='#faf0e6'>Mem </span>{used:0.1f}G "
 },
 
 "cpu": {
-	"interval": 30,
+	"interval": 5,
     "format": "<span foreground='#fffff0'>CPU </span>{}% ",
     "max-length": 15
 },
@@ -59,10 +59,26 @@
   },
   "pulseaudio": {
       "format": "{icon}  {volume}%",
-      "format-muted": "",
+      "format-muted": "",
       "format-icons": {
-          "default": ["", "", " "]
+          "default": ["", "", " "]
       },
       "on-click": "pavucontrol"
+  },
+  "custom/power": {
+        "format" : "<span foreground='#f5c2e7'>  ⏻   </span>",
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "$HOME/.config/waybar/power_menu.xml",
+		"menu-actions": {
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"suspend": "systemctl suspend",
+			"hibernate": "systemctl hibernate"
+		}
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
   }
 }
