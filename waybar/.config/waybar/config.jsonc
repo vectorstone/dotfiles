@@ -3,6 +3,7 @@
   "modules-left": ["hyprland/workspaces"],
   "modules-right": [
     "tray",
+    "bluetooth",
 	  "memory",
 	  "cpu",
 	  "disk",
@@ -25,14 +26,14 @@
 
 "cpu": {
 	"interval": 5,
-    "format": "<span foreground='#fffff0'>CPU </span>{}% ",
+    "format": "<span foreground='#fffff0'>CPU </span>{usage}% ",
     "max-length": 15
 },
 
   "disk": {
 	"interval": 30,
-    "format": "<span foreground='#f5c2e7'>Disk </span>{percentage_free}%"
-
+    "format": "<span foreground='#f5c2e7'>Disk </span>{percentage_free}%",
+    "path":"/home"
   },
 
   "battery": {
@@ -50,13 +51,17 @@
     "format-icons": ["", "", "", "", ""],
     "tooltip-format": "{time}"
   },
+
   "network": {
     "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰊗  </span>{bandwidthTotalBytes}",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+    "tooltip-format-ethernet":"{ifname}  "
+
   },
+
   "pulseaudio": {
       "format": "{icon}    {volume}%",
       "format-muted": "",
@@ -80,5 +85,16 @@
   "tray": {
     "icon-size": 20,
     "spacing": 10
-  }
+  },
+
+  "bluetooth": {
+	"format": "<span foreground='#f5c2e9'> {status}</span>",
+	"format-connected": "<span foreground='#f5c2e9'> {device_alias}</span>",
+	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+}
 }
