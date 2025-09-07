@@ -115,3 +115,14 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 alias ll='ls -l -a'
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/gavin/.dart-cli-completion/zsh-config.zsh ]] && . /home/gavin/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+export PATH=$HOME/.local/bin:$PATH
+
+export ANTHROPIC_BASE_URL=https://open.bigmodel.cn/api/anthropic
+
+export ANTHROPIC_AUTH_TOKEN=efcad3bc06ad40cf97be0c5e99848f64.twHhgarcsAEgaGjc
