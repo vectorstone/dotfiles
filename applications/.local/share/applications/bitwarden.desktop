@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=bitwarden
+Comment=bitwarden
+Exec=/home/gavin/software/Bitwarden-2025.8.2-x86_64.AppImage --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime %U
+Icon=Icon=application-default-icon
+Terminal=false
+Type=Application
+Categories=Utility;AI
