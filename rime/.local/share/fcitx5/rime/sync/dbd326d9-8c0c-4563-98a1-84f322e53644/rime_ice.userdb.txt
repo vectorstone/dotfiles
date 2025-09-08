@@ -87,7 +87,7 @@ dai ti 	代替	c=3 d=2.20587 t=1529
 dan shi 	但是	c=2 d=1.47574 t=1529
 dang qian 	当前	c=3 d=2.44396 t=1529
 dao 	到	c=5 d=2.97707 t=1529
-dao ru 	导入	c=1 d=1 t=1525
+dao ru 	导入	c=1 d=0.980199 t=1529
 de 	的	c=135 d=24.6601 t=1529
 de nei rong 	的内容	c=1 d=0.826959 t=1529
 de wen jian 	的文件	c=2 d=1.94176 t=1529
@@ -233,7 +233,7 @@ lai 	来	c=3 d=2.35661 t=1529
 lan ya 	蓝牙	c=1 d=0.97531 t=1529
 le 	了	c=15 d=6.18698 t=1529
 lei si 	类似	c=1 d=0.856415 t=1529
-lei xing 	类型	c=1 d=1 t=1527
+lei xing 	类型	c=1 d=0.99005 t=1529
 li mian 	里面	c=10 d=4.26604 t=1529
 lian jie 	连接	c=1 d=0.927743 t=1529
 lian jie 	链接	c=1 d=0.970446 t=1529

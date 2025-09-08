@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=cherry-studio
+Comment=Cherry Studio
+Exec=/home/gavin/software/Cherry-Studio-1.5.9-x86_64.AppImage --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime %U
+Icon=Icon=application-default-icon
+Terminal=false
+Type=Application
+Categories=Utility;AI
