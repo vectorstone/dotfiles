@@ -115,3 +115,4 @@ alias vim='nvim'
 alias vi='nvim'
 alias v='nvim'
 alias ll='ls -l -a'
+export PATH=$HOME/.local/bin:$PATH

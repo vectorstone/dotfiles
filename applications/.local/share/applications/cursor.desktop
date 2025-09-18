@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Cursor
 Comment=Cursor
-Exec=/home/gavin/software/Cursor-1.5.11-x86_64.AppImage
+Exec=/home/gavin/software/Cursor.AppImage
 Icon=Icon=application-default-icon
 Terminal=false
 Type=Application
