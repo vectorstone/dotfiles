@@ -1,0 +1,5 @@
+patch:
+  # 默认启用英文标点；中文输入状态下可直接输出 ASCII 标点/符号。
+  # @1 指向 double_pinyin_flypy.schema.yaml 中第 2 个 switch，也就是 ascii_punct
+  "switches/@1/reset": 1
+  "switches/@1/states": [，。, .]

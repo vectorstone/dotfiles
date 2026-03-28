@@ -1,0 +1,35 @@
+patch:
+  menu:
+    # 开启全局英文标点
+    ascii_punct: true
+  app_options:
+    com.apple.Spotlight:
+      ascii_mode: true # 开启默认英文
+    # com.microsoft.VSCode:
+    #   ascii_mode: false   # 关闭默认英文
+    com.microsoft.VSCode:
+      ascii_mode: true # 开启默认英文
+    com.sankuai.cloudide.app:
+      ascii_mode: true
+    cn.neixin.pc:
+      ascii_mode: false
+    com.jetbrains.intellij:
+      ascii_mode: true
+    com.todesktop.230313mzl4w4u92:
+      ascii_mode: true
+    md.obsidian:
+      ascii_mode: true
+    com.runningwithcrayons.Alfred:
+      ascii_mode: true
+    com.google.Chrome:
+      ascii_mode: true
+    com.apple.Terminal:
+      ascii_mode: true
+    app.zen-browser.zen:
+      ascii_mode: true
+    com.superultra.Homerow:
+      ascii_mode: true
+    dev.zed.Zed:
+      ascii_mode: true
+    com.mitchellh.ghostty:
+      ascii_mode: true

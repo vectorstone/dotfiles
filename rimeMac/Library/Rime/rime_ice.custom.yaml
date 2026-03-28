@@ -1,0 +1,6 @@
+patch:
+  # 重置标点状态：0 为中文标点，1 为英文标点
+  "switches/@next":
+    name: ascii_punct
+    reset: 1
+    states: [。，, ．，]
