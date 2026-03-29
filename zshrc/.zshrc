@@ -133,16 +133,17 @@ function y() {
 
 # Alias
 alias python=python3
-alias python3=python3.11
+alias python3=python3.14
 alias pip3=pip3.11
-alias cc='command claude --dangerously-skip-permissions'
-alias claude='command claude --dangerously-skip-permissions'
+alias cc='claude'
+#alias cc='command claude --dangerously-skip-permissions'
+#alias claude='command claude --dangerously-skip-permissions'
 alias oc="opencode"
 alias cr="crush --yolo"
 alias co="codex --yolo"
 alias mcc="mc --code --model glm-4.6"
 alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
-alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+#alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
 alias mnpm="npm --registry=http://r.npm.sankuai.com --cache=$HOME/.cache/mnpm --disturl=http://npm.sankuai.com/mirrors/node --userconfig=$HOME/.mnpmrc"
 
 alias jumperalias="ssh jumper.sankuai.com"
