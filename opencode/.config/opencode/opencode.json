@@ -1,0 +1,303 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "chrome-devtools": {
+      "command": ["npx", "chrome-devtools-mcp@latest", "--autoConnect"],
+      "enabled": true,
+      "type": "local"
+    },
+    "context7": {
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true,
+      "type": "local"
+    },
+    "jdwp-mcp": {
+      "command": [
+        "/Users/wangxiaoguang/Documents/github/jdwp-mcp/target/release/jdwp-mcp"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "maven-decoder-java": {
+      "command": [
+        "java",
+        "-jar",
+        "/Users/wangxiaoguang/IdeaProjects/maven-decoder-mcp-java/target/maven-decoder-mcp-java-1.0.0-SNAPSHOT.jar"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "mdp-agent": {
+      "command": [
+        "npx",
+        "-y",
+        "--registry=http://r.npm.sankuai.com",
+        "@mtfe/mcp-proxy@latest",
+        "https://mdp.sankuai.com/mdp/agent/sse",
+        "--transportStrategy",
+        "sse-only",
+        "--clientId",
+        "81470364"
+      ],
+      "enabled": true,
+      "type": "local"
+    },
+    "sequential-thinking": {
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "enabled": true,
+      "type": "local"
+    }
+  },
+  "plugin": [
+    "opencode-antigravity-auth@1.6.0",
+    "@mohak34/opencode-notifier@latest",
+    "superpowers@git+https://github.com/obra/superpowers.git",
+    "oh-my-openagent@3.13.1"
+  ],
+  "provider": {
+    "bailian-coding-plan": {
+      "models": {
+        "MiniMax-M2.5": {
+          "limit": {
+            "context": 196608,
+            "output": 24576
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "MiniMax M2.5",
+          "options": {
+            "thinking": {
+              "budgetTokens": 8192,
+              "type": "enabled"
+            }
+          }
+        },
+        "glm-4.7": {
+          "limit": {
+            "context": 202752,
+            "output": 16384
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "GLM-4.7",
+          "options": {
+            "thinking": {
+              "budgetTokens": 8192,
+              "type": "enabled"
+            }
+          }
+        },
+        "glm-5": {
+          "limit": {
+            "context": 202752,
+            "output": 16384
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "GLM-5",
+          "options": {
+            "thinking": {
+              "budgetTokens": 8192,
+              "type": "enabled"
+            }
+          }
+        },
+        "kimi-k2.5": {
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "Kimi K2.5",
+          "options": {
+            "thinking": {
+              "budgetTokens": 8192,
+              "type": "enabled"
+            }
+          }
+        },
+        "qwen3-coder-next": {
+          "limit": {
+            "context": 262144,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Qwen3 Coder Next"
+        },
+        "qwen3-coder-plus": {
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Qwen3 Coder Plus"
+        },
+        "qwen3-max-2026-01-23": {
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          },
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "name": "Qwen3 Max 2026-01-23"
+        },
+        "qwen3.5-plus": {
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "name": "Qwen3.5 Plus",
+          "options": {
+            "thinking": {
+              "budgetTokens": 8192,
+              "type": "enabled"
+            }
+          }
+        }
+      },
+      "name": "Model Studio Coding Plan",
+      "npm": "@ai-sdk/anthropic",
+      "options": {
+        "apiKey": "sk-sp-a62f9e9687b741638e0033ac8fe44d3f",
+        "baseURL": "https://coding.dashscope.aliyuncs.com/apps/anthropic/v1"
+      }
+    },
+    "google": {
+      "models": {
+        "antigravity-claude-opus-4-5-thinking": {
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "Claude Opus 4.5 Thinking (Antigravity)",
+          "variants": {
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
+        },
+        "antigravity-claude-sonnet-4-5": {
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "Claude Sonnet 4.5 (Antigravity)"
+        },
+        "antigravity-claude-sonnet-4-5-thinking": {
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
+          "variants": {
+            "low": {
+              "thinkingConfig": {
+                "thinkingBudget": 8192
+              }
+            },
+            "max": {
+              "thinkingConfig": {
+                "thinkingBudget": 32768
+              }
+            }
+          }
+        },
+        "antigravity-gemini-3-flash": {
+          "limit": {
+            "context": 1048576,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "Gemini 3 Flash (Antigravity)",
+          "variants": {
+            "high": {
+              "thinkingLevel": "high"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            },
+            "medium": {
+              "thinkingLevel": "medium"
+            },
+            "minimal": {
+              "thinkingLevel": "minimal"
+            }
+          }
+        },
+        "antigravity-gemini-3-pro": {
+          "limit": {
+            "context": 1048576,
+            "output": 65535
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          },
+          "name": "Gemini 3 Pro (Antigravity)",
+          "variants": {
+            "high": {
+              "thinkingLevel": "high"
+            },
+            "low": {
+              "thinkingLevel": "low"
+            }
+          }
+        }
+      },
+      "name": "Google"
+    },
+    "openai": {
+      "options": {
+        "apiKey": "sk-ant-api03-qf85RujPx55_qLFfpIdIhgJmhhKo02oVq1HDL7qpMW76YhMGCZv9tyKxrBnNCoSzCbwhZMRfjFFOuehzqbvEMA",
+        "baseURL": "https://api.aicodemirror.com/api/codex/backend-api/codex"
+      }
+    }
+  }
+}

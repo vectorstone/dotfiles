@@ -135,8 +135,8 @@ function y() {
 alias python=python3
 alias python3=python3.14
 alias pip3=pip3.11
-alias cc='claude'
-#alias cc='command claude --dangerously-skip-permissions'
+#alias cc='claude --enable-auto-mode'
+alias cc='command claude --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
 alias oc="opencode"
 alias cr="crush --yolo"
@@ -147,7 +147,7 @@ alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
 alias mnpm="npm --registry=http://r.npm.sankuai.com --cache=$HOME/.cache/mnpm --disturl=http://npm.sankuai.com/mirrors/node --userconfig=$HOME/.mnpmrc"
 
 alias jumperalias="ssh jumper.sankuai.com"
-alias k380="sudo ~/Docs/k380-macos/k380 -f on"
+alias k380="sudo ~/Documents/k380-macos/k380 -f on"
 alias wt="cd ~/IdeaProjects/wt/"
 alias id="cd ~/IdeaProjects/"
 alias ll="ls -la"
@@ -182,3 +182,6 @@ export PATH="${(j/:/)path}"
 
 # OpenClaw Completion
 #source "/Users/wangxiaoguang/.openclaw/completions/openclaw.zsh"
+
+# opencode
+export PATH=/Users/wangxiaoguang/.opencode/bin:$PATH
