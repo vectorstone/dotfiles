@@ -21,6 +21,32 @@
         },
       ],
     },
+    {
+      "host": "148.135.17.41",
+      "username": "root",
+      "args": [],
+      "projects": [
+        {
+          "paths": [],
+        },
+        {
+          "paths": ["/root/./"],
+        },
+      ],
+    },
+    {
+      "host": "64.181.221.30",
+      "username": "ubuntu",
+      "args": [],
+      "projects": [
+        {
+          "paths": [],
+        },
+        {
+          "paths": ["/root/./"],
+        },
+      ],
+    },
   ],
   "icon_theme": "VSCode Icons (Dark)",
   "show_edit_predictions": false,
