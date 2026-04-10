@@ -165,6 +165,8 @@ export ENABLE_LSP_TOOL=1
 export GIT_COMMIT_HASH="test_guangyujie_local"
 
 # Runtime proxy
+# 可以使用curl -L https://ifconfig.me来测试终端中的代理是否生效,会返回访问外网的真正的ip
+# curl ipinfo.io 这个命令输出的内容更多
 #export https_proxy="http://127.0.0.1:7890"
 #export http_proxy="http://127.0.0.1:7890"
 #export all_proxy="socks5://127.0.0.1:7890"
