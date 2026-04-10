@@ -55,9 +55,6 @@
       "show_edit_predictions": false,
     },
   },
-  "features": {
-    "edit_prediction_provider": "zed",
-  },
   "agent": {
     "default_model": {
       "provider": "google",
@@ -93,6 +90,7 @@
   // Other
   "confirm_quit": true,
   "edit_predictions": {
+    "provider": "zed",
     "disabled_globs": [".env"],
   },
   "current_line_highlight": "all",
