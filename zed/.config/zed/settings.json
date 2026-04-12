@@ -7,6 +7,95 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "language_models": {
+    "anthropic": {
+      "api_url": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
+      "available_models": [
+        {
+          "name": "qwen3.6-plus",
+          "display_name": "Qwen3.6 Plus",
+          "max_tokens": 1000000,
+          "max_output_tokens": 65536,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+        {
+          "name": "qwen3.5-plus",
+          "display_name": "Qwen3.5 Plus",
+          "max_tokens": 1000000,
+          "max_output_tokens": 65536,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+        {
+          "name": "qwen3-max-2026-01-23",
+          "display_name": "Qwen3 Max 2026-01-23",
+          "max_tokens": 262144,
+          "max_output_tokens": 32768,
+        },
+        {
+          "name": "qwen3-coder-next",
+          "display_name": "Qwen3 Coder Next",
+          "max_tokens": 262144,
+          "max_output_tokens": 65536,
+        },
+        {
+          "name": "qwen3-coder-plus",
+          "display_name": "Qwen3 Coder Plus",
+          "max_tokens": 1000000,
+          "max_output_tokens": 65536,
+        },
+        {
+          "name": "MiniMax-M2.5",
+          "display_name": "MiniMax M2.5",
+          "max_tokens": 196608,
+          "max_output_tokens": 24576,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+        {
+          "name": "glm-5",
+          "display_name": "GLM-5",
+          "max_tokens": 202752,
+          "max_output_tokens": 16384,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+        {
+          "name": "glm-4.7",
+          "display_name": "GLM-4.7",
+          "max_tokens": 202752,
+          "max_output_tokens": 16384,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+        {
+          "name": "kimi-k2.5",
+          "display_name": "Kimi K2.5",
+          "max_tokens": 262144,
+          "max_output_tokens": 32768,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 8192,
+          },
+        },
+      ],
+    },
+  },
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "JetBrains",
   "ssh_connections": [
     {
       "host": "39.100.105.236",
@@ -47,8 +136,25 @@
         },
       ],
     },
+    {
+      "host": "192.168.6.1",
+      "username": "root",
+      "args": [],
+      "projects": [
+        {
+          "paths": [],
+        },
+        {
+          "paths": ["/root/./"],
+        },
+      ],
+    },
   ],
-  "icon_theme": "VSCode Icons (Dark)",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
   "show_edit_predictions": false,
   "languages": {
     "YAML": {
@@ -57,22 +163,31 @@
   },
   "agent": {
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-pro",
+      "enable_thinking": false,
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+    },
+    "commit_message_model": {
+      "provider": "bailian",
+      "model": "bailian/glm-5",
     },
   },
-  "theme": "One Dark Pro",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark",
+  },
   "telemetry": {
-    "diagnostics": false,
-    "metrics": false,
+    "diagnostics": true,
+    "metrics": true,
   },
   "autosave": "on_window_change",
   // UI
   "ui_font_size": 16,
-  "ui_font_family": "Roboto Mono",
+  "ui_font_family": ".ZedMono",
   // Editor
   "buffer_font_size": 16,
-  "buffer_font_family": "Roboto Mono",
+  "buffer_font_family": ".ZedMono",
   "buffer_font_features": {
     "calt": false,
   },
@@ -106,10 +221,10 @@
     // "button": true,
     "copy_on_select": true,
     "blinking": "on",
-    "font_family": "Roboto Mono",
+    "font_family": ".ZedMono",
     "cursor_shape": "bar",
     "shell": {
-      "program": "fish",
+      "program": "zsh",
     },
   },
   "collaboration_panel": {

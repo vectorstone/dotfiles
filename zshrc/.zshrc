@@ -140,7 +140,8 @@ alias cc='command claude --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
 alias oc="opencode"
 alias cr="crush --yolo"
-alias co="codex --yolo"
+# alias co="codex --yolo"
+alias co="omx --madmax --high"
 alias mcc="mc --code --model glm-4.6"
 alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
 #alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
@@ -187,3 +188,4 @@ export PATH="${(j/:/)path}"
 
 # opencode
 export PATH=/Users/wangxiaoguang/.opencode/bin:$PATH
+export ANTHROPIC_API_KEY=sk-sp-a62f9e9687b741638e0033ac8fe44d3f
