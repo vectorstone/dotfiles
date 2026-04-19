@@ -161,6 +161,7 @@ alias tns='tmux new-session -e mode=dev -s'
 alias tat='tmux attach -t'
 alias tls='tmux ls'
 alias tkt='tmux kill-session -t'
+alias vim='nvim'
 
 export ENABLE_LSP_TOOL=1
 export GIT_COMMIT_HASH="test_guangyujie_local"
@@ -188,4 +189,6 @@ export PATH="${(j/:/)path}"
 
 # opencode
 export PATH=/Users/wangxiaoguang/.opencode/bin:$PATH
-export ANTHROPIC_API_KEY=sk-sp-a62f9e9687b741638e0033ac8fe44d3f
+
+
+[ -r "/Users/wangxiaoguang/.arc-cli/completions/arc.zsh" ] && source "/Users/wangxiaoguang/.arc-cli/completions/arc.zsh"
