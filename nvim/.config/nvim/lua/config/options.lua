@@ -10,3 +10,4 @@ opt.cursorline = true
 opt.scrolloff = 10
 opt.list = true
 opt.confirm = true
+opt.spelllang = { "en", "cjk" }

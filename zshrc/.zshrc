@@ -19,8 +19,10 @@ add_fpath() {
 }
 
 # Homebrew
-if [[ -x "/opt/homebrew/bin/brew" && -z "${HOMEBREW_PREFIX:-}" ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -d "/opt/homebrew" ]]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+  export HOMEBREW_REPOSITORY="/opt/homebrew"
 fi
 
 add_path "/opt/homebrew/bin"
@@ -40,31 +42,24 @@ add_path "$PNPM_HOME"
 export BUN_INSTALL="$HOME/.bun"
 add_path "$BUN_INSTALL/bin"
 
-if [[ -r "$HOME/.orbstack/shell/init.zsh" ]]; then
-  source "$HOME/.orbstack/shell/init.zsh" 2>/dev/null || true
-fi
+add_path "$HOME/.orbstack/bin"
+add_fpath "/Applications/OrbStack.app/Contents/Resources/completions/zsh"
 
 # OpenSpec and local completions
 add_fpath "$HOME/.oh-my-zsh/custom/completions"
 add_fpath "$HOME/.zsh/completions"
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$ZSH/custom"
 export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump-${HOST}-${ZSH_VERSION}"
 [[ -d "${ZSH_COMPDUMP:h}" ]] || mkdir -p "${ZSH_COMPDUMP:h}"
-zstyle ':omz:update' mode disabled
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-ZSH_THEME=""
+autoload -Uz compinit
+compinit -d "$ZSH_COMPDUMP" -C
+
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
-source "$ZSH/oh-my-zsh.sh"
+source "$HOME/.oh-my-zsh/plugins/git/git.plugin.zsh"
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 eval "$(starship init zsh)"
 
 # Node - fast path + lazy nvm
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-
 export NVM_DIR="$HOME/.nvm"
 typeset -g __nvm_default_version_bin=""
 if [[ -r "$NVM_DIR/alias/default" ]]; then
@@ -88,8 +83,14 @@ nvm() {
 }
 
 # Java - use the Homebrew sdkman-cli installation and keep Java on 21.
-export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+export SDKMAN_DIR="/opt/homebrew/opt/sdkman-cli/libexec"
+
+sdk() {
+  unset -f sdk
+  [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] || return 127
+  source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+  sdk "$@"
+}
 
 if [[ -d "${SDKMAN_DIR}/candidates/java/current" ]]; then
   export JAVA_HOME="${SDKMAN_DIR}/candidates/java/current"
@@ -118,6 +119,17 @@ _lazy_openclaw_completion() {
 
 if command -v openclaw >/dev/null 2>&1 && [[ -r "$HOME/.openclaw/completions/openclaw.zsh" ]]; then
   compdef _lazy_openclaw_completion openclaw
+fi
+
+# Lazy arc completion because the completion script is large.
+_lazy_arc_completion() {
+  unfunction _lazy_arc_completion
+  source "$HOME/.arc-cli/completions/arc.zsh"
+  _arc "$@"
+}
+
+if command -v arc >/dev/null 2>&1 && [[ -r "$HOME/.arc-cli/completions/arc.zsh" ]]; then
+  compdef _lazy_arc_completion arc
 fi
 
 # Shell helpers
@@ -163,6 +175,9 @@ alias tls='tmux ls'
 alias tkt='tmux kill-session -t'
 alias vim='nvim'
 
+# Load syntax highlighting late so it can wrap previously defined widgets.
+source "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 export ENABLE_LSP_TOOL=1
 export GIT_COMMIT_HASH="test_guangyujie_local"
 
@@ -187,8 +202,5 @@ export PATH="${(j/:/)path}"
 # OpenClaw Completion
 #source "/Users/wangxiaoguang/.openclaw/completions/openclaw.zsh"
 
-# opencode
-export PATH=/Users/wangxiaoguang/.opencode/bin:$PATH
-
-
-[ -r "/Users/wangxiaoguang/.arc-cli/completions/arc.zsh" ] && source "/Users/wangxiaoguang/.arc-cli/completions/arc.zsh"
+export JASYPT_PASS="wswxgpp.eu.org"
+export OMX_DEFAULT_FRONTIER_MODEL="gpt-5.4"
