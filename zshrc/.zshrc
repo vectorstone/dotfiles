@@ -162,7 +162,7 @@ alias mnpm="npm --registry=http://r.npm.sankuai.com --cache=$HOME/.cache/mnpm --
 alias jumperalias="ssh jumper.sankuai.com"
 alias k380="sudo ~/Documents/k380-macos/k380 -f on"
 alias wt="cd ~/IdeaProjects/wt/"
-alias id="cd ~/IdeaProjects/"
+alias projects="cd ~/IdeaProjects/"
 alias ll="ls -la"
 
 alias mvnt="mvn clean test -Dmaven.gitcommitid.skip=true"
