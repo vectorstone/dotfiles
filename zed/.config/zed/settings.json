@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "language_models": {
     "anthropic": {
       "api_url": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
@@ -162,6 +168,7 @@
     },
   },
   "agent": {
+    "dock": "right",
     "default_model": {
       "enable_thinking": false,
       "provider": "deepseek",
@@ -210,6 +217,7 @@
   },
   "current_line_highlight": "all",
   "outline_panel": {
+    "dock": "left",
     "button": false,
   },
   "notification_panel": {
@@ -228,6 +236,7 @@
     },
   },
   "collaboration_panel": {
+    "dock": "left",
     "button": false,
   },
   "format_on_save": "on",
