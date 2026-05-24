@@ -150,8 +150,8 @@ alias cc='command claude --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
 alias oc="opencode"
 alias cr="crush --yolo"
-# alias co="codex --yolo"
-alias co="omx --madmax --high"
+alias co="codex --yolo"
+#alias co="omx --madmax --high"
 alias mcc="mc --code --model glm-4.6"
 alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
 #alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
@@ -187,7 +187,6 @@ export GIT_COMMIT_HASH="test_guangyujie_local"
 #export all_proxy="socks5://127.0.0.1:7890"
 
 # Sensitive local environment kept as-is for now.
-export DEEPSEEK_API_KEY="sk-1b946b6c59eb48999b6011735566cc28"
 [[ -r "$HOME/.sage-mint-marketplace/chain.crt" ]] && export CERTIFICATE_CHAIN="$(< "$HOME/.sage-mint-marketplace/chain.crt")"
 [[ -r "$HOME/.sage-mint-marketplace/private.pem" ]] && export PRIVATE_KEY="$(< "$HOME/.sage-mint-marketplace/private.pem")"
 export PRIVATE_KEY_PASSWORD="gavin"
@@ -202,3 +201,4 @@ export PATH="${(j/:/)path}"
 
 export JASYPT_PASS="wswxgpp.eu.org"
 export OMX_DEFAULT_FRONTIER_MODEL="gpt-5.4"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

@@ -27,7 +27,7 @@ unfocused-split-opacity = 0.9
 # 推荐 Maple Mono NF CN（brew install --cask font-maple-mono-nf-cn）
 font-family = "Maple Mono NF CN"
 #font-family = "Monaco"
-font-size = 13
+font-size = 11 
 #font-thicken = true
 
 # 连字支持
