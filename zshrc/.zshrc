@@ -152,6 +152,7 @@ alias oc="opencode"
 alias cr="crush --yolo"
 alias co="codex --yolo"
 #alias co="omx --madmax --high"
+alias omh="omx --madmax --high"
 alias mcc="mc --code --model glm-4.6"
 alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
 #alias claude-mem='bun "$HOME/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'

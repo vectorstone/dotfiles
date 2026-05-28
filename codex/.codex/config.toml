@@ -1,0 +1,93 @@
+model_provider = "infra"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+disable_response_storage = true
+preferred_auth_method = "apikey"
+
+# managed by hermes-agent — `hermes codex-runtime migrate` regenerates this section
+
+default_permissions = ":workspace"
+sandbox_mode = "danger-full-access"
+approval_policy = "never"
+
+[mcp_servers.hermes-tools]
+command = "/home/gavin/.hermes/hermes-agent/venv/bin/python"
+args = ["-m", "agent.transports.hermes_tools_mcp_server"]
+env = { HERMES_HOME = "/home/gavin/.hermes", HERMES_QUIET = "1", HERMES_REDACT_SECRETS = "true" }
+startup_timeout_sec = 30.0
+tool_timeout_sec = 600.0
+
+# end hermes-agent managed section
+
+[model_providers.infra]
+name = "infra"
+base_url = "https://global-infra.net"
+wire_api = "responses"
+
+[features]
+goals = true
+
+[projects."/home/gavin"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/chat"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/sub2api"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.local/share/fcitx5/rime"]
+trust_level = "trusted"
+
+[projects."/home/gavin/dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/config-backup"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/tokenRouter"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.hermes/sessions"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.hermes"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.hermes/hermes-agent"]
+trust_level = "trusted"
+
+[projects."/home/gavin/Downloads"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.config/hypr"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/muxy"]
+trust_level = "trusted"
+
+[projects."/home/gavin/Documents/Obsidian"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/cocoindex"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/arc-kit"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/obsidian-knowledge"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/hive"]
+trust_level = "trusted"
+
+[projects."/home/gavin/IdeaProjects/Zoom-to-mouse-ULTIMATE-for-OBS"]
+trust_level = "trusted"
+
+[projects."/home/gavin/.claude"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+
+
