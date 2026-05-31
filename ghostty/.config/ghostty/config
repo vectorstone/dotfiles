@@ -7,14 +7,14 @@
 # theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 theme = light:Catppuccin Mocha,dark:Catppuccin Mocha
 # 背景透明度（0.0 ~ 1.0）
-background-opacity = 0.88
+background-opacity = 0.7
 
 # 背景模糊（配合透明度使用，毛玻璃效果）
-background-blur = 20
+background-blur = 70
 
 # 背景图片（可选，放一张喜欢的图，终端瞬间好看）
 background-image = ~/Documents/background/wp1883575-shameless-wallpapers.jpg
-background-image-opacity = 0.3
+background-image-opacity = 0.2
 background-image-fit = cover
 
 # 标题栏集成 Tab 栏（比 hidden 多了 Tab 支持）

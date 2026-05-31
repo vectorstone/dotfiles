@@ -52,6 +52,18 @@ export ZSH_COMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump-${HOST}-${ZS
 autoload -Uz compinit
 compinit -d "$ZSH_COMPDUMP" -C
 
+# Keep shared shell history available to zsh-autosuggestions in every new terminal.
+export HISTFILE="${HISTFILE:-$HOME/.zsh_history}"
+export HISTSIZE=50000
+export SAVEHIST=10000
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+setopt SHARE_HISTORY
+[[ -r "$HISTFILE" && ${#history} -eq 0 ]] && fc -R "$HISTFILE"
+
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=250'
 source "$HOME/.oh-my-zsh/plugins/git/git.plugin.zsh"
 source "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
@@ -150,8 +162,8 @@ alias cc='command claude --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
 alias oc="opencode"
 alias cr="crush --yolo"
-alias co="codex --yolo"
-#alias co="omx --madmax --high"
+# alias co="codex --yolo"
+alias co="omx --madmax --high"
 alias omh="omx --madmax --high"
 alias mcc="mc --code --model glm-4.6"
 alias mccd="mc --code --model glm-4.6 --dangerously-skip-permissions"
