@@ -185,6 +185,8 @@ alias tat='tmux attach -t'
 alias tls='tmux ls'
 alias tkt='tmux kill-session -t'
 alias vim='nvim'
+alias ob='cd /home/gavin/Documents/Obsidian'
+alias blog='cd "/home/gavin/Documents/Obsidian/04 blog/vectorstone.github.io"'
 
 # Load syntax highlighting late so it can wrap previously defined widgets.
 source "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
