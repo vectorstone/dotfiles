@@ -2,42 +2,19 @@
   "$schema": "https://opencode.ai/config.json",
   "mcp": {
     "chrome-devtools": {
-      "command": ["npx", "chrome-devtools-mcp@latest", "--autoConnect"],
+      "command": [
+        "npx",
+        "chrome-devtools-mcp@latest",
+        "--autoConnect"
+      ],
       "enabled": true,
       "type": "local"
     },
     "context7": {
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": true,
-      "type": "local"
-    },
-    "jdwp-mcp": {
-      "command": [
-        "/Users/wangxiaoguang/Documents/github/jdwp-mcp/target/release/jdwp-mcp"
-      ],
-      "enabled": true,
-      "type": "local"
-    },
-    "maven-decoder-java": {
-      "command": [
-        "java",
-        "-jar",
-        "/Users/wangxiaoguang/IdeaProjects/maven-decoder-mcp-java/target/maven-decoder-mcp-java-1.0.0-SNAPSHOT.jar"
-      ],
-      "enabled": true,
-      "type": "local"
-    },
-    "mdp-agent": {
       "command": [
         "npx",
         "-y",
-        "--registry=http://r.npm.sankuai.com",
-        "@mtfe/mcp-proxy@latest",
-        "https://mdp.sankuai.com/mdp/agent/sse",
-        "--transportStrategy",
-        "sse-only",
-        "--clientId",
-        "81470364"
+        "@upstash/context7-mcp"
       ],
       "enabled": true,
       "type": "local"
@@ -50,6 +27,14 @@
       ],
       "enabled": true,
       "type": "local"
+    },
+    "anysearch": {
+      "type": "remote",
+      "url": "https://api.anysearch.com/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer as_sk_6f09c3e00eaf4fd33075edd162d03c38"
+      }
     }
   },
   "plugin": [
@@ -67,8 +52,12 @@
             "output": 24576
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "MiniMax M2.5",
           "options": {
@@ -84,8 +73,12 @@
             "output": 16384
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "GLM-4.7",
           "options": {
@@ -101,8 +94,12 @@
             "output": 16384
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "GLM-5",
           "options": {
@@ -118,8 +115,13 @@
             "output": 32768
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Kimi K2.5",
           "options": {
@@ -135,8 +137,12 @@
             "output": 65536
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Qwen3 Coder Next"
         },
@@ -146,8 +152,12 @@
             "output": 65536
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Qwen3 Coder Plus"
         },
@@ -157,8 +167,12 @@
             "output": 32768
           },
           "modalities": {
-            "input": ["text"],
-            "output": ["text"]
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Qwen3 Max 2026-01-23"
         },
@@ -168,8 +182,13 @@
             "output": 65536
           },
           "modalities": {
-            "input": ["text", "image"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Qwen3.5 Plus",
           "options": {
@@ -195,8 +214,14 @@
             "output": 64000
           },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Claude Opus 4.5 Thinking (Antigravity)",
           "variants": {
@@ -218,8 +243,14 @@
             "output": 64000
           },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Claude Sonnet 4.5 (Antigravity)"
         },
@@ -229,8 +260,14 @@
             "output": 64000
           },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Claude Sonnet 4.5 Thinking (Antigravity)",
           "variants": {
@@ -252,8 +289,14 @@
             "output": 65536
           },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Gemini 3 Flash (Antigravity)",
           "variants": {
@@ -277,8 +320,14 @@
             "output": 65535
           },
           "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"]
+            "input": [
+              "text",
+              "image",
+              "pdf"
+            ],
+            "output": [
+              "text"
+            ]
           },
           "name": "Gemini 3 Pro (Antigravity)",
           "variants": {
@@ -298,6 +347,14 @@
         "apiKey": "sk-ant-api03-qf85RujPx55_qLFfpIdIhgJmhhKo02oVq1HDL7qpMW76YhMGCZv9tyKxrBnNCoSzCbwhZMRfjFFOuehzqbvEMA",
         "baseURL": "https://api.aicodemirror.com/api/codex/backend-api/codex"
       }
+    },
+    "anthropic": {
+      "name": "Anthropic (global-infra)",
+      "options": {
+        "baseURL": "https://global-infra.net/v1",
+        "apiKey": "sk-4694df8f3ae290f09e4e3216ed71d677e180486b6b63cc88b6f47ed2a7eaaaf4"
+      },
+      "npm": "@ai-sdk/anthropic"
     }
   }
 }
