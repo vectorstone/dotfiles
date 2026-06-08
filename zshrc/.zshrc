@@ -158,8 +158,81 @@ alias python=python3
 alias python3=python3.14
 alias pip3=pip3.11
 #alias cc='claude --enable-auto-mode'
-alias cc='command claude --dangerously-skip-permissions'
+# alias cc='command claude --dangerously-skip-permissions'
+alias cc='claude --channels plugin:telegram@claude-plugins-official --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
+
+# ---- Claude Code channels patch (re-apply after updates) ----
+claude-patch() {
+  local BINARY="/opt/claude-code/bin/claude"
+  local UPSTREAM="$HOME/IdeaProjects/claude-channels-patch/patch.py"
+
+  if [[ ! -f "$BINARY" ]]; then
+    echo "claude-patch: $BINARY not found"
+    return 1
+  fi
+
+  # Quick check: already patched?
+  if strings "$BINARY" | grep -q '@source__'; then
+    echo "claude-patch: already patched, skipping."
+    return 0
+  fi
+
+  echo -n "claude-patch: binary changed, re-applying... "
+
+  # Try upstream patcher first
+  if python3 "$UPSTREAM" --binary "$BINARY" --strategy legacy 2>&1 | grep -qE "OK|Patched"; then
+    echo "done (upstream patcher)."
+    return 0
+  fi
+
+  # Fallback: inline anchor-based patch
+  echo -n "fallback... "
+  python3 -c "
+import os
+d=bytearray(open('$BINARY','rb').read())
+t=d.decode('latin-1')
+# @bytecode -> @source__
+for i in range(len(d)-8):
+    if d[i:i+9]==b'@bytecode': d[i:i+9]=b'@source__'
+# Find gateChannelServer via anchor and patch Zq()!==\"firstParty\" + !ihH()
+anchor='channels are not available on third-party providers'
+for p in range(len(t)):
+    if t[p:p+len(anchor)]!=anchor: continue
+    w=t[max(0,p-1000):p]
+    if 'claude/channel' not in w: continue
+    zp=t.find('Zq()!==\"firstParty\"',max(0,p-300),p+300)
+    if zp<0: continue
+    r=b'!1'+b' '*(len('Zq()!==\"firstParty\"')-2)
+    d[zp:zp+len(r)]=r
+    ip=t.find('!ihH()',p-200,p+300)
+    if ip>=0:
+        r2=b'!1'+b' '*(len('!ihH()')-2)
+        d[ip:ip+len(r2)]=r2
+    break
+open('/tmp/claude.patched','wb').write(bytes(d))
+os.chmod('/tmp/claude.patched',0o755)
+" && sudo cp /tmp/claude.patched "$BINARY" && echo "done." || { echo "FAILED."; return 1; }
+
+  if strings "$BINARY" | grep -q '@source__'; then
+    echo "claude-patch: verified OK. Run 'cc' to start Claude Code with channels."
+  else
+    echo "claude-patch: WARNING - verification failed."
+    return 1
+  fi
+}
+
+# Wrapper: omarchy update + auto-repatch Claude Code
+omupdate() {
+  omarchy update "$@"
+  local ret=$?
+  if [[ $ret -eq 0 ]]; then
+    echo ""
+    claude-patch
+  fi
+  return $ret
+}
+# ---- end channels patch ----
 alias oc="opencode"
 alias cr="crush --yolo"
 # alias co="codex --yolo"
@@ -217,3 +290,20 @@ export PATH="${(j/:/)path}"
 export JASYPT_PASS="wswxgpp.eu.org"
 export OMX_DEFAULT_FRONTIER_MODEL="gpt-5.4"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# bun completions
+[ -s "/home/gavin/.bun/_bun" ] && source "/home/gavin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Oracle OCI CLI
+export PATH="/home/gavin/bin:$PATH"
+
+# >>> anysearch >>>
+export ANYSEARCH_API_KEY='as_sk_6f09c3e00eaf4fd33075edd162d03c38'
+# <<< anysearch <<<
+
+# OpenJarvis
+export PATH="$HOME/.local/bin:$PATH"

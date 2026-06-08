@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  "model_fallback": true,
+  "runtime_fallback": {
+    "enabled": true,
+    "max_fallback_attempts": 2,
+    "notify_on_fallback": true
+  },
+  "agents": {
+    "sisyphus": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    },
+    "hephaestus": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    },
+    "prometheus": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "high",
+      "fallback_models": [
+        "anthropic/claude-opus-4-7",
+        "anthropic/claude-sonnet-4-6"
+      ],
+      "prompt_append": "Always produce decision-complete plans. Separate facts, assumptions, risks, and validation steps."
+    },
+    "oracle": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "high",
+      "fallback_models": [
+        "anthropic/claude-opus-4-7",
+        "anthropic/claude-sonnet-4-6"
+      ],
+      "prompt_append": "Prefer root-cause analysis over local symptom patching."
+    },
+    "librarian": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    },
+    "explore": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    },
+    "multimodal-looker": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929"
+      ]
+    },
+    "metis": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "high",
+      "fallback_models": [
+        "anthropic/claude-opus-4-7",
+        "anthropic/claude-sonnet-4-6"
+      ]
+    },
+    "momus": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "xhigh",
+      "fallback_models": [
+        "anthropic/claude-opus-4-7",
+        "anthropic/claude-sonnet-4-6"
+      ]
+    },
+    "atlas": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    },
+    "sisyphus-junior": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium",
+      "fallback_models": [
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-haiku-4-5-20251001"
+      ]
+    }
+  },
+  "categories": {
+    "quick": {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "variant": "medium"
+    },
+    "unspecified-low": {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "variant": "medium"
+    },
+    "unspecified-high": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "high"
+    },
+    "deep": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "high"
+    },
+    "ultrabrain": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "xhigh"
+    },
+    "writing": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "medium"
+    },
+    "visual-engineering": {
+      "model": "anthropic/claude-sonnet-4-6",
+      "variant": "high"
+    },
+    "artistry": {
+      "model": "anthropic/claude-opus-4-8",
+      "variant": "xhigh"
+    }
+  }
+}
+
