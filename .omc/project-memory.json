@@ -1,0 +1,236 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1781267588742,
+  "projectRoot": "/home/gavin/dotfiles",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "scripts"
+    ],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "alacritty": {
+      "path": "alacritty",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588729,
+      "keyFiles": []
+    },
+    "background": {
+      "path": "background",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588734,
+      "keyFiles": []
+    },
+    "backgrounds": {
+      "path": "backgrounds",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588736,
+      "keyFiles": []
+    },
+    "cava": {
+      "path": "cava",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588736,
+      "keyFiles": []
+    },
+    "codex": {
+      "path": "codex",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588736,
+      "keyFiles": []
+    },
+    "ghostty": {
+      "path": "ghostty",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588736,
+      "keyFiles": []
+    },
+    "hyprland": {
+      "path": "hyprland",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588737,
+      "keyFiles": []
+    },
+    "hyprlock": {
+      "path": "hyprlock",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588737,
+      "keyFiles": []
+    },
+    "hyprmocha": {
+      "path": "hyprmocha",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588737,
+      "keyFiles": []
+    },
+    "hyprpaper": {
+      "path": "hyprpaper",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588738,
+      "keyFiles": []
+    },
+    "i3": {
+      "path": "i3",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588738,
+      "keyFiles": []
+    },
+    "kitty": {
+      "path": "kitty",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588738,
+      "keyFiles": []
+    },
+    "nvim": {
+      "path": "nvim",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "opencode": {
+      "path": "opencode",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "picom": {
+      "path": "picom",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "polybar": {
+      "path": "polybar",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "rimeLinux": {
+      "path": "rimeLinux",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "rimeMac": {
+      "path": "rimeMac",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "rofi": {
+      "path": "rofi",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "screenlayout": {
+      "path": "screenlayout",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "scripts": {
+      "path": "scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 0,
+      "lastAccessed": 1781267588739,
+      "keyFiles": []
+    },
+    "starship": {
+      "path": "starship",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "tmux": {
+      "path": "tmux",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "waybar": {
+      "path": "waybar",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "wofi": {
+      "path": "wofi",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "xresources": {
+      "path": "xresources",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "zed": {
+      "path": "zed",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    },
+    "zshrc": {
+      "path": "zshrc",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1781267588740,
+      "keyFiles": []
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

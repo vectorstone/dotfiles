@@ -1,0 +1,265 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+
+  // ----------------------------------------------------------------------
+  // Profile: minimax  (MiniMax-M3, MiniMax Token Plan / minimax-cn-coding-plan)
+  //
+  // Provider notes:
+  //   - OpenCode ships a built-in `minimax` provider (and a `minimax-cn-coding-plan`
+  //     alias) that points at the MiniMax Token Plan endpoint.
+  //   - The official `MiniMax-M3` model id is accepted by both OpenAI-compatible
+  //     (https://api.minimax.io/v1) and Anthropic-compatible endpoints. OpenCode
+  //     wires the provider to whichever protocol it supports natively.
+  //   - Reasoning-style fields (variant / reasoningEffort / textVerbosity) are
+  //     auto-normalized by OmO against the model's capability metadata, so values
+  //     that MiniMax-M3 does not advertise get silently dropped instead of 400-ing.
+  //   - MiniMax only ships one model (M3), so we let OmO's built-in provider
+  //     fallback chain do the heavy lifting rather than hard-coding alternates.
+  //
+  // Design intent:
+  //   1. Put MiniMax-M3 on every agent and category — it's the only available
+  //      model, so the orchestrator and its sub-agents all stay on it.
+  //   2. Use `variant` (the cross-provider capability knob) to throttle effort
+  //      per role: `xhigh` for the deep thinkers, `medium` for builders,
+  //      `low` for cheap grep/read work.
+  //   3. Keep a `fallback_models` chain on every agent pointing at the
+  //      `opencode-go` provider (OmO's free tier) so a M3 quota exhaustion
+  //      does not stall the whole session.
+  //   4. Set `max_fallback_attempts: 2` and tighten `timeout_seconds` to 10s
+  //      because the MiniMax coding-plan proxy tends to return 4xx quickly
+  //      when the rate limit is hit; default 30s is too long.
+  // ----------------------------------------------------------------------
+
+  "model_fallback": true,
+  "runtime_fallback": {
+    "enabled": true,
+    "retry_on_errors": [400, 401, 403, 404, 429, 500, 502, 503, 504],
+    "max_fallback_attempts": 2,
+    "cooldown_seconds": 15,
+    "timeout_seconds": 10,
+    "notify_on_fallback": true
+  },
+
+  "agents": {
+    "sisyphus": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "max",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        {
+          "model": "opencode-go/kimi-k2.6",
+          "variant": "medium"
+        }
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "hephaestus": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        {
+          "model": "opencode-go/kimi-k2.6",
+          "variant": "medium"
+        }
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "prometheus": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "xhigh",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5.1"
+      ],
+      "prompt_append": "Always produce decision-complete plans. Separate facts, assumptions, risks, and validation steps. Be explicit when information is missing.",
+      "textVerbosity": "medium"
+    },
+
+    "oracle": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "xhigh",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5.1"
+      ],
+      "prompt_append": "Prefer root-cause analysis over local symptom patching. Cite the exact call site and explain why the upstream code is wrong.",
+      "textVerbosity": "medium"
+    },
+
+    "librarian": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "low",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/qwen3.5-plus"
+      ],
+      "textVerbosity": "low"
+    },
+
+    "explore": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "low",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/qwen3.5-plus"
+      ],
+      "textVerbosity": "low"
+    },
+
+    "multimodal-looker": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "medium",
+      "fallback_models": [
+        "minimax/MiniMax-M3"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "metis": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5.1"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "momus": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5.1"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "atlas": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "medium",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        {
+          "model": "opencode-go/kimi-k2.6",
+          "variant": "medium"
+        }
+      ],
+      "textVerbosity": "low"
+    },
+
+    "sisyphus-junior": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "medium",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/qwen3.5-plus"
+      ],
+      "textVerbosity": "low"
+    }
+  },
+
+  "categories": {
+    "quick": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "low",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/qwen3.5-plus"
+      ],
+      "textVerbosity": "low"
+    },
+
+    "unspecified-low": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "low",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/qwen3.5-plus"
+      ],
+      "textVerbosity": "low"
+    },
+
+    "unspecified-high": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/kimi-k2.6"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "deep": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/kimi-k2.6"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "ultrabrain": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "xhigh",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5.1"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "writing": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "medium",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/kimi-k2.6"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "visual-engineering": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5"
+      ],
+      "textVerbosity": "medium"
+    },
+
+    "artistry": {
+      "model": "minimax-cn-coding-plan/MiniMax-M3",
+      "variant": "high",
+      "fallback_models": [
+        "minimax/MiniMax-M3",
+        "opencode-go/glm-5"
+      ],
+      "textVerbosity": "medium"
+    }
+  },
+
+  "background_task": {
+    "defaultConcurrency": 8,
+    "staleTimeoutMs": 180000,
+    "providerConcurrency": {
+      "minimax-cn-coding-plan": 6,
+      "minimax": 6,
+      "opencode-go": 10
+    },
+    "modelConcurrency": {
+      "minimax-cn-coding-plan/MiniMax-M3": 6
+    }
+  },
+
+  "git_master": {
+    "commit_footer": true,
+    "include_co_authored_by": true,
+    "git_env_prefix": "OMO"
+  }
+}

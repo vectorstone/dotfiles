@@ -161,7 +161,7 @@ alias pip3=pip3.11
 # alias cc='command claude --dangerously-skip-permissions'
 alias cc='claude --channels plugin:telegram@claude-plugins-official --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
-
+alias cpwd='pwd | wl-copy && echo "Path copied: $(pwd)"'   
 # ---- Claude Code channels patch (re-apply after updates) ----
 claude-patch() {
   local BINARY="/opt/claude-code/bin/claude"
@@ -305,5 +305,9 @@ export PATH="/home/gavin/bin:$PATH"
 export ANYSEARCH_API_KEY='as_sk_6f09c3e00eaf4fd33075edd162d03c38'
 # <<< anysearch <<<
 
-# OpenJarvis
-export PATH="$HOME/.local/bin:$PATH"
+# ruflo
+export RUFLO_PROVIDER=openrouter
+export OPENROUTER_API_KEY="sk-4a25c07ea8382df73143506c86eb3913143a75342f5826db7f189c7480b45e3e"
+export OPENROUTER_BASE_URL="https://global-infra.net"
+export CLAUDE_FLOW_ENCRYPT_AT_REST=1
+export CLAUDE_FLOW_ENCRYPTION_KEY='2cb18472ea3bf74163480642635d7f6f34e7b32b8e40170e1968869eae4d15c9'
