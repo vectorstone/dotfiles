@@ -51,3 +51,18 @@ mouse-hide-while-typing = true
 # --- 剪贴板 ---
 copy-on-select = clipboard
 clipboard-trim-trailing-spaces = true
+
+# 复制：Ctrl+C（有选中文本时复制，否则保持终端内 Ctrl+C 行为）
+keybind = ctrl+shift+c=unbind
+keybind = performable:ctrl+c=copy_to_clipboard
+
+# 粘贴：Ctrl+V
+keybind = ctrl+shift+v=unbind
+keybind = ctrl+v=paste_from_clipboard
+
+# --- macOS 专属 ---
+# 退出时不弹确认框（如果你习惯了 Cmd+Q）
+confirm-close-surface = false
+
+# Option 键作为 Alt 使用（对 vim/emacs 用户很重要）
+macos-option-as-alt = true

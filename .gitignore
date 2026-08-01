@@ -2,3 +2,5 @@
 **/.DS_Store
 logs/
 .omx/
+.omc/
+zshrc/.zshrc.local

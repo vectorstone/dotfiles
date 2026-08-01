@@ -35,6 +35,17 @@
       "headers": {
         "Authorization": "Bearer as_sk_6f09c3e00eaf4fd33075edd162d03c38"
       }
+    },
+    "obsidian-vault": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@bitbonsai/mcpvault@latest",
+        "/home/gavin/Documents/Obsidian"
+      ],
+      "enabled": true,
+      "timeout": 15000
     }
   },
   "plugin": [

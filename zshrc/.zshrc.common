@@ -325,20 +325,13 @@ export GIT_COMMIT_HASH="test_guangyujie_local"
 #export http_proxy="http://127.0.0.1:7890"
 #export all_proxy="socks5://127.0.0.1:7890"
 
-# Sensitive local environment kept as-is for now.
-[[ -r "$HOME/.sage-mint-marketplace/chain.crt" ]] && export CERTIFICATE_CHAIN="$(< "$HOME/.sage-mint-marketplace/chain.crt")"
-[[ -r "$HOME/.sage-mint-marketplace/private.pem" ]] && export PRIVATE_KEY="$(< "$HOME/.sage-mint-marketplace/private.pem")"
-export PRIVATE_KEY_PASSWORD="gavin"
-export PUBLISH_TOKEN="perm-d2FuZ19nYXZpbg==.OTItMTU5MDA=.Zl8XYCUvWn6qtYNoT8gcQbLL2zeDX6"
-
-export JASYPT_PASS="wswxgpp.eu.org"
-export OMX_DEFAULT_FRONTIER_MODEL="gpt-5.4"
-
-# >>> anysearch >>>
-export ANYSEARCH_API_KEY='as_sk_6f09c3e00eaf4fd33075edd162d03c38'
-# <<< anysearch <<<
+export OMX_DEFAULT_FRONTIER_MODEL="${OMX_DEFAULT_FRONTIER_MODEL:-gpt-5.4}"
+export RUFLO_PROVIDER="${RUFLO_PROVIDER:-openrouter}"
+export OPENROUTER_BASE_URL="${OPENROUTER_BASE_URL:-https://global-infra.net}"
+export CLAUDE_FLOW_ENCRYPT_AT_REST="${CLAUDE_FLOW_ENCRYPT_AT_REST:-1}"
 
 export PATH="${(j/:/)path}"
 export OPENCODE_DISABLE_CLAUDE_CODE=1
 
-export GLOBAL_INFRA_ADMIN_KEY='admin-d040906e4856b72daf3162b06652fd37c6b34e638367b6b08fb47c618106636c'
+# Local private environment for secrets and machine-specific overrides.
+safe_source "$HOME/.zshrc.local"
