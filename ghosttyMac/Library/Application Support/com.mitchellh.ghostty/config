@@ -1,0 +1,26 @@
+# ===========================
+# Ghostty macOS 覆盖配置
+# 会在 XDG 配置之后加载并覆盖同名项
+# ===========================
+
+# --- 外观 ---
+# macOS 上调亮一点：更高透明度、更弱图片遮罩、更柔和模糊
+background-opacity = 0.92
+background-blur = 50
+background-image = ~/Documents/background/wp1883575-shameless-wallpapers.jpg
+background-image-opacity = 0.12
+background-image-fit = cover
+
+# 标题栏集成 Tab 栏
+macos-titlebar-style = tabs
+
+# --- 字体 ---
+font-size = 13
+
+# --- 快捷键 ---
+# Cmd+B -> Ctrl+B（tmux prefix）
+keybind = cmd+b=text:\x02
+
+# --- macOS 专属 ---
+confirm-close-surface = false
+macos-option-as-alt = true

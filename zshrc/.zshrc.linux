@@ -1,0 +1,15 @@
+init_brew_shellenv /home/linuxbrew/.linuxbrew/bin/brew /usr/local/bin/brew
+
+add_path "/home/linuxbrew/.linuxbrew/bin"
+add_path "/home/linuxbrew/.linuxbrew/sbin"
+
+export PNPM_HOME="${PNPM_HOME:-${XDG_DATA_HOME:-$HOME/.local/share}/pnpm}"
+add_path "$PNPM_HOME"
+
+if [[ -d "$HOME/.sdkman" ]]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+fi
+
+activate_sdkman_java
+
+export OBSIDIAN_DIR="$HOME/Documents/Obsidian"

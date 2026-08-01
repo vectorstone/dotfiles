@@ -1,0 +1,1 @@
+[[ -r "$HOME/.zshrc.common" ]] && source "$HOME/.zshrc.common"

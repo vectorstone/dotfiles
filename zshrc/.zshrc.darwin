@@ -1,0 +1,24 @@
+init_brew_shellenv /opt/homebrew/bin/brew /usr/local/bin/brew
+
+add_path "/opt/homebrew/bin"
+add_path "/opt/homebrew/sbin"
+
+export PNPM_HOME="${PNPM_HOME:-$HOME/Library/pnpm}"
+add_path "$PNPM_HOME"
+
+add_path "$HOME/.orbstack/bin"
+add_fpath "/Applications/OrbStack.app/Contents/Resources/completions/zsh"
+
+if [[ -d "/opt/homebrew/opt/sdkman-cli/libexec" ]]; then
+  export SDKMAN_DIR="/opt/homebrew/opt/sdkman-cli/libexec"
+elif [[ -d "/usr/local/opt/sdkman-cli/libexec" ]]; then
+  export SDKMAN_DIR="/usr/local/opt/sdkman-cli/libexec"
+fi
+
+activate_sdkman_java
+
+export OBSIDIAN_DIR="$HOME/Documents/Obsidian/GavinObsidian"
+
+if [[ -x "$HOME/Documents/k380-macos/k380" ]]; then
+  alias k380='sudo "$HOME/Documents/k380-macos/k380" -f on'
+fi

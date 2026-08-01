@@ -1,0 +1,4 @@
+# AnySearch Runtime Configuration
+# Prefer the portable launcher so the same skill works on macOS and Linux.
+Runtime: Auto
+Command: <skill_dir>/scripts/anysearch

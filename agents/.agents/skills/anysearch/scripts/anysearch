@@ -1,0 +1,45 @@
+#!/usr/bin/env sh
+set -eu
+
+SCRIPT_PATH=$0
+case "$SCRIPT_PATH" in
+  */*) ;;
+  *)
+    found=$(command -v "$SCRIPT_PATH" 2>/dev/null || true)
+    if [ -n "$found" ]; then
+      SCRIPT_PATH=$found
+    fi
+    ;;
+esac
+
+SCRIPT_DIR=$(CDPATH= cd "$(dirname "$SCRIPT_PATH")" && pwd -P)
+
+python_has_requests() {
+  "$1" -c 'import requests' >/dev/null 2>&1
+}
+
+if command -v python3 >/dev/null 2>&1 && python_has_requests python3; then
+  exec python3 "$SCRIPT_DIR/anysearch_cli.py" "$@"
+fi
+
+if command -v python >/dev/null 2>&1 && python_has_requests python; then
+  exec python "$SCRIPT_DIR/anysearch_cli.py" "$@"
+fi
+
+if command -v node >/dev/null 2>&1; then
+  exec node "$SCRIPT_DIR/anysearch_cli.js" "$@"
+fi
+
+if command -v bash >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 && command -v curl >/dev/null 2>&1; then
+  exec bash "$SCRIPT_DIR/anysearch_cli.sh" "$@"
+fi
+
+cat >&2 <<'EOF'
+Error: no compatible AnySearch runtime found.
+
+Install one of:
+- python3 or python with the requests package
+- node 12 or newer
+- bash with jq and curl
+EOF
+exit 1
