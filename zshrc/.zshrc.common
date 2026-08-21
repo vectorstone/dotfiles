@@ -331,7 +331,13 @@ export OPENROUTER_BASE_URL="${OPENROUTER_BASE_URL:-https://global-infra.net}"
 export CLAUDE_FLOW_ENCRYPT_AT_REST="${CLAUDE_FLOW_ENCRYPT_AT_REST:-1}"
 
 export PATH="${(j/:/)path}"
-export OPENCODE_DISABLE_CLAUDE_CODE=1
+
+
+# 保留 CLAUDE.md 兼容，只不读取 .claude/skills
+export OPENCODE_DISABLE_CLAUDE_CODE_SKILLS=true
+
+# 完全使用 AGENTS.md + .agents/skills，不读取 Claude Code 规则和技能
+# export OPENCODE_DISABLE_CLAUDE_CODE=1
 
 # Local private environment for secrets and machine-specific overrides.
 safe_source "$HOME/.zshrc.local"

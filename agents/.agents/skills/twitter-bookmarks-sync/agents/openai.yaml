@@ -1,0 +1,4 @@
+interface:
+  display_name: "Twitter Bookmarks Sync"
+  short_description: "Sync X bookmarks into GavinObsidian"
+  default_prompt: "Use $twitter-bookmarks-sync to fetch my latest X bookmarks into GavinObsidian and report the result."
