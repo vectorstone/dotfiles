@@ -205,7 +205,7 @@ alias python3=python3.14
 alias pip3=pip3.11
 #alias cc='claude --enable-auto-mode'
 # alias cc='command claude --dangerously-skip-permissions'
-alias cc='claude --channels plugin:telegram@claude-plugins-official --dangerously-skip-permissions'
+alias cc='ocx claude --dangerously-skip-permissions'
 #alias claude='command claude --dangerously-skip-permissions'
 
 # ---- Claude Code channels patch (re-apply after updates) ----
@@ -279,7 +279,7 @@ omupdate() {
   return $ret
 }
 # ---- end channels patch ----
-alias oc="opencode"
+alias oc="ocx opencode"
 alias cr="crush --yolo"
 alias co="codex --yolo"
 # alias co="omx --madmax --high"

@@ -5,7 +5,7 @@
 
 # --- 外观 ---
 # macOS 上调亮一点：更高透明度、更弱图片遮罩、更柔和模糊
-background-opacity = 0.92
+background-opacity = 0.52
 background-blur = 50
 background-image = ~/Documents/background/wp1883575-shameless-wallpapers.jpg
 background-image-opacity = 0.12
